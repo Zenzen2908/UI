@@ -1,0 +1,169 @@
+/*For the Font*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    /*Font Color*/
+    --first-color: #000000;
+    /*Background Colors*/
+    --body-bg-color: #DAE3E6;
+    --box-bg-color: #72ADC0;
+    /*Font Size*/
+    --small-font-size: 0.9em;
+    --normal-font-size: 1.5em;
+    --bigger-font-size: 2.5em;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--body-bg-color);
+}
+
+.header {
+    position: relative; 
+    align-items: center;
+    padding: 20px;
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 10px;
+    width: 24px; 
+    height: 24px; 
+    position: absolute;
+}
+
+.icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+h1 {
+    color: var(--first-color);
+    text-align: left;
+    margin: 0;
+    font-size: var(--normal-font-size);
+    margin-left: 30px 
+}
+
+h2 {
+    color: var(--first-color);
+    font-size: var(--bigger-font-size);
+
+}
+
+h3 {
+    color: var(--first-color);
+    font-size: var(--small-font-size);
+   
+}
+h2, h3 {
+    margin: 0;
+    padding: 0;
+    margin-left: 50px;
+}
+.dashed-box {
+    width: 600px;
+    height: 430px;
+    margin-left: 50px;
+    border: 3px dashed black;
+    margin-top: 20px;
+    padding: 20px; 
+    box-sizing: border-box; 
+    position: relative;
+}
+.inner-dashed-box {
+    border: 2px dashed black;
+    width: calc(100% - 40px);
+    height: calc(50% - 40px);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 20px;
+    font-size: 18px;
+    margin-top:  20px;
+}
+.upload-label:hover {
+    border: 2px dashed black;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.side-box {
+    width: 770px;
+    height: 550px; 
+    background-color: var(--box-bg-color);
+    box-sizing: border-box;
+    position: absolute;
+    top: 80px;
+    right: 50px; 
+}
+.proceed-button {
+    position: absolute;
+    top: calc(80px + 550px + 20px); 
+    right: 50px; 
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: var(--box-bg-color);
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 28px;
+}
+
+.proceed-button:hover {
+    background-color: var(--box-bg-color);
+}
+.result-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 470px; 
+    background-color: var(--box-bg-color); 
+    margin: 20px 300px; 
+    box-sizing: border-box;
+}
+.save-data-button,
+.try-again-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--box-bg-color); 
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 28px;
+}
+
+.save-data-button:hover,
+.try-again-button:hover {
+    background-color: var(--box-bg-color);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center; 
+}
+
+.save-data-button + .try-again-button {
+    margin-left: 10px;
+}
