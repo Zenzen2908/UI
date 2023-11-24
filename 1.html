@@ -1,34 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Object Detector In Shadows</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
-    <div class="header">
-        <div class="icon">
-            <i class="fas fa-cube"></i>
-        </div>
-        <h1>Object Detector In Shadows</h1>
-        <div class="side-box"></div>
-    </div>
-    <h2>01 Upload Your Image</h2> 
-    <h3>The vehicles such as Jeepneys, Private Cars and Trucks occluded by shadows <br>
-        in the uploaded image will be detected.</h3>
-    <div class="container">
-     <div class="dashed-box">
-        <div class="inner-dashed-box"></div> 
-        <label for="file-upload" class="upload-label">
-            <i class="fas fa-upload"></i>
-            Upload your image from your computer 
-        </label>
-    </div>
-    <div class="container-box"></div>
-    <div class="side-box"></div>
-<button class="proceed-button">Proceed</button>
-</body>
-</html>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/28e3060a5c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
 
+  <body>
+    <div class="top">
+      <h1><img src="" /><i class="fa-solid fa-cube"></i> Object Detector in Shadows</h1>
+    </div>
+    <div class="mid">
+      <div class="side">
+        <h2>01 Upload Your Image</h2>
+        <p>
+          The Vehicles (such as cars), Airplanes, and Ship in the uploaded image will be detected.
+        </p>
+        <div>
+          <div>
+            <script
+              class="jsbin"
+              src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+            ></script>
+            <div class="file-upload">
+              <div class="image-upload-wrap">
+                <input
+                  class="file-upload-input"
+                  type="file"
+                  onchange="readURL(this);"
+                  accept="image/*"
+                />
+                <div class="drag-text">
+                  <h3>Upload your input from your computer</h3>
+                </div>
+              </div>
+              <div class="file-upload-content">
+                <img class="file-upload-image" src="#" alt="your image" />
+                <div class="image-title-wrap">
+                  <button
+                    type="button"
+                    onclick="removeUpload()"
+                    class="remove-image"
+                  >
+                    Remove Image</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="side" id="display">
+        <img
+          class="additional-image"
+          alt="additional image"
+          style="display: none"
+        />
+      </div>
+    </div>
+    <div class="bot">
+      <button>Proceed</button>
+    </div>
+
+    <script>
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $(".image-upload-wrap").hide();
+
+            $(".file-upload-image").attr("src", e.target.result);
+            $(".file-upload-content").show();
+
+            $(".image-title").html(input.files[0].name);
+            $(".additional-image").attr("src", e.target.result).show();
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          removeUpload();
+        }
+      }
+
+      function removeUpload() {
+        $(".file-upload-input").replaceWith($(".file-upload-input").clone());
+        $(".file-upload-content").hide();
+        $(".image-upload-wrap").show();
+        $(".additional-image").attr("src", "").hide();
+      }
+      $(".image-upload-wrap").bind("dragover", function () {
+        $(".image-upload-wrap").addClass("image-dropping");
+      });
+      $(".image-upload-wrap").bind("dragleave", function () {
+        $(".image-upload-wrap").removeClass("image-dropping");
+      });
+    </script>
+  </body>
+</html>
